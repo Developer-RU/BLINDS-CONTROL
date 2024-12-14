@@ -1,23 +1,21 @@
 #pragma once 
 
-#include <Arduino.h>
-
-#include <WiFi.h>
-#include <WiFiClient.h>
-#include <WebServer.h>
-#include <ESPmDNS.h>
-#include <Update.h>
-
-#include "FS.h"
-#include "SPIFFS.h"
+#include "esp32-hal-log.h"
+#include "Arduino.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 #include "AppConfig.hpp"
+#include "AppEnums.hpp"
+#include "Global.hpp"
 
-bool getAuth();
-bool setAuth(bool state);
-bool isAuth(void);
+#include "Configuration.hpp"
+#include "TaskWebserver.hpp"
+#include "Network.hpp"
+#include "TaskProgress.hpp"
 
-void getCpuID(void);
-void setupServer(void);
+
+void get_cpuID(void);
+void gpio_init();
 void setup(void);
 void loop(void);
